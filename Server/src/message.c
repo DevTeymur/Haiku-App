@@ -46,7 +46,7 @@ int writeMsg(int id, char *data, int mtype) {
     printf("error: writeMsg");
     return 1;
   }
-  return 0
+  return 0;
 }
 
 int readMsg(int id, Message *msg, int mtype) {
@@ -55,5 +55,5 @@ int readMsg(int id, Message *msg, int mtype) {
     printf("error: readMsg");
     return 1;
   }
-  return 0
+  return 0;
 }

@@ -14,7 +14,7 @@ int createQueue(char *filePath, char id_proj);
 int accessQueue(char *filePath, char id_proj);
 int removeQueue(int id);
 
-int writeMsg(int id, char *data);
+int writeMsg(int id, char *data, int mtype);
 int readMsg(int id, Message *msg, int mtype);
 
 #endif // __MESSAGE_H__
