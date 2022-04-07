@@ -4,6 +4,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/msg.h>
+#include <sys/ipc.h>
+#include <sys/types.h>
+
+#define FILE_PATH "Makefile"
+#define ID_PROJ 'R'
 
 typedef struct _Message {
   long mtype;
@@ -14,7 +19,7 @@ int createQueue(char *filePath, char id_proj);
 int accessQueue(char *filePath, char id_proj);
 int removeQueue(int id);
 
-int writeMsg(int id, char *data, int mtype);
+int writeMsg(int id, char data[], int mtype);
 int readMsg(int id, Message *msg, int mtype);
 
 #endif // __MESSAGE_H__
