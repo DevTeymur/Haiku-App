@@ -41,10 +41,8 @@ int writeMsg(int id, char data[], int mtype) {
   Message msg;
   msg.mtype = mtype;
   strcpy(msg.data, data);
-  if (msg.data[strlen(msg.data)-1] == '\n')
-    msg.data[strlen(msg.data)-1] = '\0';
 
-  int result = msgsnd(id, &msg, sizeof(char) * strlen(msg.data) + 1, 0);
+  int result = msgsnd(id, &msg, sizeof msg - sizeof msg.mtype, 0);
   if (result == -1) {
     printf("error: writeMsg\n");
     return 1;
@@ -53,7 +51,8 @@ int writeMsg(int id, char data[], int mtype) {
 }
 
 int readMsg(int id, Message *msg, int mtype) {
-  int result = msgrcv(id, msg, sizeof(*msg) - sizeof(msg->mtype), mtype, 0);
+  Message _msg = *msg;
+  int result = msgrcv(id, msg, sizeof _msg - sizeof _msg.mtype , mtype, 0);
   if (result == -1) {
     printf("error: readMsg\n");
     return 1;

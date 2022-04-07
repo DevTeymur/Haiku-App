@@ -8,7 +8,7 @@
 #include <sys/types.h>
 
 #define FILE_PATH "Makefile"
-#define ID_PROJ 'R'
+#define ID_PROJ 'F'
 
 typedef struct _Message {
   long mtype;

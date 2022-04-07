@@ -8,7 +8,8 @@
 
 #include "message.h"
 
-static char *filePathes[31] = {"res/japanese.txt", "res/western.txt"};
+#define filePathes(cat) cat == 1 ? "res/japanese.txt" : "res/western.txt"
+// char *filePathes[2] = {"res/japanese.txt", "res/western.txt"};
 
 void *threadWrite(void * arg);
 int writeHaiku(int category);

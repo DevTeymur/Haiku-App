@@ -3,6 +3,8 @@
 
 #include "message.h"
 
-int readHaiku(int msgId, int category);
+void *threadRead(void * arg);
+int readHaiku(int category);
+void startReader();
 
 #endif // __READER_H__
