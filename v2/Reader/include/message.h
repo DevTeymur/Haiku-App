@@ -3,12 +3,13 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/msg.h>
 #include <sys/ipc.h>
 #include <sys/types.h>
 
-#define FILE_PATH "Makefile"
-#define ID_PROJ 'F'
+#define FILE_PATH "/etc/passwd"
+#define ID_PROJ 'A'
 
 typedef struct _Message {
   long mtype;

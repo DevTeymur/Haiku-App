@@ -13,6 +13,5 @@
 
 void *threadWrite(void * arg);
 int writeHaiku(int category);
-void startWriter();
 
 #endif // __WRITER_H__
