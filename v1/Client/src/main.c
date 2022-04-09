@@ -4,14 +4,17 @@
 
 #include "rvcPid.h"
 
+#define FIFO_PATH "../pid.fifo"
+
 int randomSignal();
 
-int main(int argc, char * argv[])
-{
-	pid_t pid = rcvServerPid("../pid.fifo");
+int main(int argc, char * argv[]) {
+	pid_t pid = rcvServerPid(FIFO_PATH);
 	if (pid < 0) {
 		return 1;
 	}
+	remove(FIFO_PATH);
+	
 	printf("%d\n", pid);
 
 	for (int i = 0; i < 100; i++) {
@@ -19,7 +22,6 @@ int main(int argc, char * argv[])
 		sleep(1);
 	}
 
-	remove("../pid.fifo");
 	return 0;
 }
 

@@ -14,6 +14,10 @@ int readHaiku(int category) {
 
 void startReader() {
   int qid = accessQueue(FILE_PATH, ID_PROJ);
+
+  // read thread
+
+
   printf("REMOVED");
   removeQueue(qid);
 }
