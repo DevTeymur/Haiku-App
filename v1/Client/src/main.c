@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <CUnit/CUnit.h>
 
 #include "rvcPid.h"
 
 #define FIFO_PATH "../pid.fifo"
 
 int randomSignal();
+
+void test_fac_0(void) {
+  CU_ASSERT_EQUAL(randomSignal(), 1);
+}
 
 int main(int argc, char * argv[]) {
 	pid_t pid = rcvServerPid(FIFO_PATH);
