@@ -34,5 +34,6 @@ int main(int argc, char * argv[]) {
 
 	printf("Enter any number to exit:\n");
 	int a; scanf("%d", &a);
+	remove(FIFO_PATH);
 	return 0;
 }

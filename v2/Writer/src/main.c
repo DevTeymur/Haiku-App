@@ -17,6 +17,12 @@ int main(int argc, char * argv[]) {
 		return 2;
 	}
 
+	result = writeHaiku(2);
+	if (result < 0) {
+		printf("error: main-writeHaiku");
+		return 3;
+	}
+
 	printf("enter eny number to exit:\n");
 	int a; scanf("%d", &a);
 	

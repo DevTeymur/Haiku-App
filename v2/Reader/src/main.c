@@ -18,6 +18,12 @@ int main(int argc, char * argv[]) {
 		return 2;
 	}
 
+	result = readHaiku(2);
+	if (result < 0) {
+		printf("error: main-readHaiku");
+		return 3;
+	}
+
 	printf("enter eny number to exit:\n");
 	int a; scanf("%d", &a);
 
