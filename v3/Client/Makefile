@@ -2,7 +2,7 @@ COMPILER = gcc
 EX = .c
 
 OBJdir = bin
-HDRdir = include
+HDRdir = inc
 SRCdir = src
 
 FLAGS = -Wall -g
