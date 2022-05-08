@@ -11,32 +11,15 @@ int main(int argc, char * argv[])
 		return 1;
 	}
 
-	// int input = 0;
-	// while (1) {
-	// 	printf("Enter a category to print haikus (1 - japanese, 2 - western, 0 - exit\n-> ");
-	// 	scanf("%d", &input);
-	// 	if (input == 0) break;
-	// 	readHaiku(input);
-	// }
-
-	readHaiku(1);
-	readHaiku(1);
-	readHaiku(1);
-	readHaiku(1);
-	readHaiku(1);
-	readHaiku(1);
-	readHaiku(1);
-	readHaiku(0);
-	readHaiku(0);
-	readHaiku(0);
-	readHaiku(0);
-	readHaiku(0);
-	readHaiku(0);
-	readHaiku(0);
-	readHaiku(0);
+	int input = 0;
+	printf("Enter a category to print haikus (1 - japanese, 2 - western, 0 - exit\n-> ");
+	while (1) {
+		scanf("%d", &input);
+		if (input == 0) break;
+		readHaiku(input);
+	}
 
 	removeQueue(qid);
-	printf("yes");
 
 	return 0;
 }

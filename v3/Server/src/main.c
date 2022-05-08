@@ -18,7 +18,6 @@ int main(int argc, char * argv[])
 		return 2;
 	}
 
-	int qid = createQueue(FILE_PATH, ID_PROJ);
 	result = createFIFO(FIFO_PATH);
 	if (result < 0) {
 		printf("error: main-createFIFO\n");
@@ -31,7 +30,7 @@ int main(int argc, char * argv[])
 		return 4;
 	}
 
-	printf("Server started\n  enter any number to exit\n");
+	printf("Server started\n  enter any number to exit: ");
 	int a; scanf("%d", &a);
 	remove(FIFO_PATH);
 	return 0;

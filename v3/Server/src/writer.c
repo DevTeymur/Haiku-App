@@ -42,7 +42,6 @@ void *threadWrite(void * arg) {
       pthread_exit(NULL);
     }
   }
-  printf("written for cat = %d\n", category);
   fclose(file);
   pthread_exit(NULL);
 }

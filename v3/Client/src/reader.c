@@ -4,7 +4,7 @@ int numberOfHaikus[2] = {0, 0};
 
 void checkQueueEntries(int category) {
   int index = category - 1;
-  if (numberOfHaikus[index] == 0) {
+  if (numberOfHaikus[index] < 3) {
     sendSignal(category + 1);
     if (category == 1)
       numberOfHaikus[index] = 6;
@@ -23,8 +23,6 @@ void *threadRead(void * arg) {
     pthread_exit(NULL);
   }
 
-  checkQueueEntries(category);
-
   Message msg;
   int result = readMsg(qid, &msg, category);
   if (result < 0) {
@@ -32,11 +30,13 @@ void *threadRead(void * arg) {
     pthread_exit(NULL);
   }
 
-  printf("%s", msg.data);
+  printf("%s\n", msg.data);
   pthread_exit(NULL);
 }
 
 int readHaiku(int category) {
+  checkQueueEntries(category);
+  numberOfHaikus[category - 1] -= 3;
   for (int i = 0; i < 3; i++) {
     int * cat = (int *)malloc(sizeof(int));
     *cat = category; 
