@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
-// #include <bits/sigaction.h>
 
 #include "writer.h"
 
