@@ -6,6 +6,7 @@
 #include <signal.h>
 
 #include "writer.h"
+#include "reader.h"
 
 // func: handles incoming signal
 // args: caught signal

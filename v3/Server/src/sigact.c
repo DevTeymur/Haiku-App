@@ -2,9 +2,9 @@
 
 void handleSignal(int sig) {
   if (sig == SIGINT)
-    writeHaiku(1);
+    readHaiku(1);
   else if (sig == SIGQUIT)
-    writeHaiku(2);
+    readHaiku(2);
 }
 
 int initSignal(int sig, void * handler, int flags) {

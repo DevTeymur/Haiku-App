@@ -5,7 +5,7 @@
 #include <pthread.h>
 
 #include "message.h"
-#include "sendSig.h"
+#include "writer.h"
 
 // func: checks the queue if it is out of message for a category
 //   sends a signal to Server if it is out of messages in order to fill it

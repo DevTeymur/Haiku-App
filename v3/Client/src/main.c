@@ -1,25 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 
-#include "reader.h"
+#include "rvcPid.h"
 
-int main(int argc, char * argv[])
-{
-	int qid = createQueue(FILE_PATH, ID_PROJ);
-	if (qid < 0) {
-		printf("error: main-createQueue");
-		return 1;
-	}
+int main(int argc, char const *argv[]){
 
-	int input = 0;
-	printf("Enter a category to print haikus (1 - japanese, 2 - western, 0 - exit\n-> ");
+	pid_t serverPid = rcvServerPid(FIFO_PATH);
+
+	char input = 0;
+	printf("Enter a category to print haikus (j - japanese, w - western, 0 - exit\n-> ");
 	while (1) {
-		scanf("%d", &input);
-		if (input == 0) break;
-		readHaiku(input);
+		scanf("%c", &input);
+		if (input == '0') break;
+		else if (input == 'j')
+			kill(serverPid, SIGINT);
+		else if (input == 'w')
+			kill(serverPid, SIGQUIT);
 	}
-
-	removeQueue(qid);
-
+	
 	return 0;
 }
