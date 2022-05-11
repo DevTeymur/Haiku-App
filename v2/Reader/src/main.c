@@ -11,7 +11,8 @@ int main(int argc, char * argv[]) {
 		return 1;
 	}
 
-	printf("Start writer to proceed\n");
+	printf("Start writer to proceed\n\n");
+
 	int result = readHaiku(1);
 	if (result < 0) {
 		printf("error: main-readHaiku");
@@ -24,13 +25,13 @@ int main(int argc, char * argv[]) {
 		return 3;
 	}
 
-	printf("enter eny number to exit:\n");
-	int a; scanf("%d", &a);
+	printf("Enter any number to exit\n");
+	int b; scanf("%d", &b);
 
 	result = removeQueue(qid);
 	if (result < 0) {
-		printf("error: main-writeHaiku");
-		return 3;
+		printf("error: main-removeQueue\n");
+		return 4;
 	}
 
 	return 0;

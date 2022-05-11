@@ -1,9 +1,26 @@
 #include "writer.h"
 
+char * getHaikuFilePath(int category) {
+  if (category == 1) {
+    return haikuFilePaths[0];
+  }
+  else if (category == 2) {
+    return haikuFilePaths[1];
+  }
+  else return NULL;
+}
+
 void *threadWrite(void * arg) {
   int category = *(int *)arg;
   free(arg);
-  FILE * file = fopen(filePathes(category), "r");
+
+  char * filePath = getHaikuFilePath(category);
+  if (filePath == NULL) {
+    printf("error: threadWrite-getHaikuFilePath");
+    pthread_exit(NULL);
+  }
+
+  FILE * file = fopen(filePath, "r");
   if (file == NULL) {
     printf("error: threadWrite-fopen\n");
     pthread_exit(NULL);

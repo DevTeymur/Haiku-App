@@ -1,7 +1,11 @@
 #include "sigact.h"
 
 void handleSignal(int sig) {
-  printf(getCat(sig));
+  if (sig == SIGINT) {
+    printf("japanese\n");
+  } else if (sig == SIGQUIT) {
+    printf("western\n");
+  }
 }
 
 int initSignal(int sig, void * handler, int flags) {

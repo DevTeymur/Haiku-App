@@ -1,6 +1,6 @@
 #include "message.h"
 
-int createQueue(char *filePath, char id_proj) {
+int createQueue(char * filePath, char id_proj) {
   key_t key = ftok(filePath, id_proj);
   if (key == -1) {
     printf("error: createQueue-ftok\n");
@@ -14,7 +14,7 @@ int createQueue(char *filePath, char id_proj) {
   return id;
 }
 
-int accessQueue(char *filePath, char id_proj) {
+int accessQueue(char * filePath, char id_proj) {
   key_t key = ftok(filePath, id_proj);
   if (key == -1) {
     printf("error: accessQueue-ftok\n");

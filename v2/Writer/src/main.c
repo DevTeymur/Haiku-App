@@ -5,12 +5,7 @@
 #include "message.h"
 
 int main(int argc, char * argv[]) {
-	int qid = accessQueue(FILE_PATH, ID_PROJ);
-	if (qid < 0) {
-		printf("error: main-accessQueue");
-		return 1;
-	}
-
+	
 	int result = writeHaiku(1);
 	if (result < 0) {
 		printf("error: main-writeHaiku");
@@ -23,8 +18,8 @@ int main(int argc, char * argv[]) {
 		return 3;
 	}
 
-	printf("enter eny number to exit:\n");
-	int a; scanf("%d", &a);
-	
+	printf("Enter any number to exit\n");
+	int b; scanf("%d", &b);
+
 	return 0;
 }
