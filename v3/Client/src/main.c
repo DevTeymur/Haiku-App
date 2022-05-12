@@ -2,22 +2,24 @@
 #include <stdlib.h>
 #include <signal.h>
 
-#include "rvcPid.h"
+#include "sigact.h"
 
 int main(int argc, char const *argv[]){
 
-	pid_t serverPid = rcvServerPid(FIFO_PATH);
-
-	char input = 0;
-	printf("Enter a category to print haikus (j - japanese, w - western, 0 - exit\n-> ");
-	while (1) {
-		scanf("%c", &input);
-		if (input == '0') break;
-		else if (input == 'j')
-			kill(serverPid, SIGINT);
-		else if (input == 'w')
-			kill(serverPid, SIGQUIT);
+	int result = initSignal(SIGINT, &handleSignal, SA_RESTART);
+	if (result < 0) {
+		printf("error: main-initSignal-SIGINT\n");
+		return 1;
 	}
+	
+	result = initSignal(SIGQUIT, &handleSignal, SA_RESTART);
+	if (result < 0) {
+		printf("error: main-initSignal-SIGQUIT\n");
+		return 1;
+	}
+
+	printf("Send signals to server with [Ctrl + C] for japanese or [Ctrl + \\] for western type.\nEnter any number to terminate\n");
+	int a; scanf("%d", &a);
 	
 	return 0;
 }
