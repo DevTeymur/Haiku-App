@@ -1,10 +1,17 @@
 #include "sigact.h"
 
+pid_t serverPid = 0;
+
 void handleSignal(int sig) {
-  if (sig == SIGINT)
-    readHaiku(1);
-  else if (sig == SIGQUIT)
-    readHaiku(2);
+  if (serverPid == 0) {
+    serverPid = rcvServerPid(FIFO_PATH);
+  }
+  kill(serverPid, sig);
+
+  // if (sig == SIGINT)
+  //   readHaiku(1);
+  // else if (sig == SIGQUIT)
+  //   readHaiku(2);
 }
 
 int initSignal(int sig, void * handler, int flags) {

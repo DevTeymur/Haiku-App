@@ -5,7 +5,7 @@ int numberOfHaikus[2] = {0, 0};
 void checkQueueEntries(int category) {
   int index = category - 1;
   if (numberOfHaikus[index] < 3) {
-    sendSignal(category + 1);
+    writeHaiku(category);
     if (category == 1)
       numberOfHaikus[index] = 6;
     else

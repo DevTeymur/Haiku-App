@@ -5,8 +5,7 @@
 #include <stdlib.h>
 #include <signal.h>
 
-#include "writer.h"
-#include "reader.h"
+#include "rvcPid.h"
 
 // func: handles incoming signal
 // args: caught signal
