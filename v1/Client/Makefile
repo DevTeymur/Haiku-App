@@ -6,8 +6,8 @@ HDRdir = include
 SRCdir = src
 
 FLAGS = -Wall
-LIBPATHES = -L "/opt/homebrew/Cellar/cunit/2.1-3/lib/"
-INCPATHES = -I "/opt/homebrew/Cellar/cunit/2.1-3/include/"
+LIBPATHES = #-L "/opt/homebrew/Cellar/cunit/2.1-3/lib/"
+INCPATHES = #-I "/opt/homebrew/Cellar/cunit/2.1-3/include/"
 LINKERS = -lcunit
 
 
