@@ -1,4 +1,6 @@
 **/bin/
 **/.DS_Store
+**/lib
+**/CUnit
 .vscode/
 Haiku.code-workspace

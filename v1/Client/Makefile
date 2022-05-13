@@ -6,8 +6,7 @@ HDRdir = include
 SRCdir = src
 
 FLAGS = -Wall
-LIBPATHES = #-L "/opt/homebrew/Cellar/cunit/2.1-3/lib/"
-INCPATHES = #-I "/opt/homebrew/Cellar/cunit/2.1-3/include/"
+LIBPATHES = -L lib
 LINKERS = -lcunit
 
 
@@ -26,8 +25,8 @@ $(OBJdir)/run: $(obj)
 	$(COMPILER) $^ -o $@ $(LINKERS) $(LIBPATHES)
 
 $(OBJdir)/%.o: $(SRCdir)/%$(EX) $(hdr)
-	$(COMPILER) -c $< -o $@ -I "$(HDRdir)/" $(FLAGS) $(INCPATHES)
+	$(COMPILER) -c $< -o $@ -I "$(HDRdir)/" $(FLAGS)
 
 %.run: $(SRCdir)/%$(EX) $(hdr)
-	$(COMPILER) $< -o $(OBJdir)/$@ -I "$(HDRdir)/" $(FLAGS) $(INCPATHES) $(LIBPATHES) $(LINKERS)
+	$(COMPILER) $< -o $(OBJdir)/$@ -I "$(HDRdir)/" $(FLAGS) $(LIBPATHES) $(LINKERS)
 	./$(OBJdir)/$@

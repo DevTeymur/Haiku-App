@@ -36,7 +36,9 @@ void *threadRead(void * arg) {
 
 int readHaiku(int category) {
   checkQueueEntries(category);
-  numberOfHaikus[category - 1] -= 3;
+
+  int index = category - 1;
+  numberOfHaikus[index] -= 3;
   
   for (int i = 0; i < 3; i++) {
     int * cat = (int *)malloc(sizeof(int));
