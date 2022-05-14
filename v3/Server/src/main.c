@@ -3,9 +3,13 @@
 
 #include "sigact.h"
 #include "sendPid.h"
+#include "unitTest.h"
 
 int main(int argc, char * argv[])
 {
+	// startUnitTests();
+	// return 0;
+
 	int qid = createQueue(FILE_PATH, ID_PROJ);
 	if (qid < 0) {
 		printf("error: main-createQueue\n");
